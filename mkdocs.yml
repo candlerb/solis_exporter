@@ -1,0 +1,17 @@
+site_name: Solis Exporter
+theme: readthedocs
+repo_url: https://github.com/candlerb/solis_exporter
+
+markdown_extensions:
+  - admonition
+  - tables
+
+nav:
+  - 'Overview': 'index.md'
+  - 'Hardware': 'hardware/index.md'
+  - 'Configuration': 'configuration/index.md'
+  - 'Metrics': 'metrics/index.md'
+  - 'Alternatives': 'alternatives/index.md'
+  - 'Appendix':
+      - 'References': 'references/index.md'
+      - 'Packet log': 'packet_log/index.md'

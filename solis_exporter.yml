@@ -1,0 +1,36 @@
+serial:
+  device: /dev/ttyUSB0
+  dump: true
+
+solis_exporter:
+  listen: ':3105'
+  go_collector: false
+  process_collector: false
+
+#gateway:
+#  listen: '127.0.0.1:1502'
+#  rules:
+#    # Allow all read
+#    - from: 10001
+#      to: 19999
+#      functions: [2]
+#    - from: 30001
+#      to: 39999
+#      functions: [3,4]
+#    - from: 40001
+#      to: 49999
+#      functions: [3]
+#    # Storage mode control
+#    - from: 43110
+#      functions: [6]
+#    # Battery discharge current limit (0.1A)
+#    - from: 43118
+#      functions: [6]
+#    # Timed charge and discharge current
+#    - from: 43141
+#      to: 43142
+#      functions: [6,16]
+#    # Timed charge and discharge start/end
+#    - from: 43143
+#      to: 43150
+#      functions: [16]

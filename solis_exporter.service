@@ -1,0 +1,17 @@
+[Unit]
+Description=Solis Exporter
+After=network-online.target
+
+[Service]
+User=solis
+Group=dialout
+Restart=on-failure
+RestartSec=300
+WorkingDirectory=/var/tmp
+EnvironmentFile=/etc/default/solis_exporter
+ExecStart=/usr/local/bin/solis_exporter --config=/etc/solis_exporter.yml
+#CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+#AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target
