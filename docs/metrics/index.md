@@ -4,7 +4,7 @@
 
 Here are some examples of metrics returned:
 
-```text
+```
 go_build_info{checksum="",path="github.com/candlerb/solis_exporter",version="(devel)"} 1
 promhttp_metric_handler_errors_total{cause="encoding"} 0
 promhttp_metric_handler_errors_total{cause="gathering"} 0
@@ -134,7 +134,7 @@ Although "Total Power" is collected from the inverter, it appears that it is
 simply the total DC power across all the strings, since you can get a
 matching result using:
 
-```text
+```
 sum by (instance) (solis_inverter_dc_voltage * solis_inverter_dc_current)
 ```
 
@@ -199,7 +199,7 @@ drains (by 1% in ~2 hours, which for my 7.1kWh battery setup is 35W)
 discharging), so an alternative battery power drain figure can be calculated
 using:
 
-```text
+```
 solis_bms_battery_current * solis_bms_battery_voltage * sgn(solis_battery_current)
 ```
 
@@ -232,7 +232,7 @@ battery charge/discharge.
 
 The following formula seems to give a more consistent estimate of load:
 
-```text
+```
 clamp_min(0.97 * solis_inverter_dc_power - solis_grid_power_active - 0.97 *
 solis_bms_battery_current * solis_bms_battery_voltage * sgn(solis_battery_current), 0)
 ```
