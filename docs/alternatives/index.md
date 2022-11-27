@@ -12,11 +12,12 @@ reverse engineered.  This is configured via the data logger's web admin
 interface.
 
 * [ginlong-wifi](https://github.com/graham0/ginlong-wifi) - `nc -l` (bash)
-  and python versions
-* [ginlong-mqtt](https://github.com/dpoulson/ginlong-mqtt) - python/mqtt,
-  with [protocol doc](https://github.com/dpoulson/ginlong-mqtt/blob/master/Protocol)
+  and python versions - 2G inverter, 206 byte frames
+* [ginlong-mqtt](https://github.com/dpoulson/ginlong-mqtt) - python/mqtt -
+  4G Mini inverter, 270 byte frames; includes a
+  [protocol doc](https://github.com/dpoulson/ginlong-mqtt/blob/master/Protocol).
 
-These packages may decode messages for a different inverter model though.
+It could be that neither of these will work with a 5G inverter.
 
 ## Scraping of status.html from the data logger
 
