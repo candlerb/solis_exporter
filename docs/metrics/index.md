@@ -26,6 +26,7 @@ solis_grid_energy{type="import"} 205.56
 solis_grid_frequency 50.07
 solis_grid_power_active 2
 solis_grid_power_apparent 235
+solis_grid_power_factor -0.81
 solis_grid_power_reactive 235
 solis_grid_voltage{phase="U"} 239.9
 solis_grid_voltage{phase="V"} 0

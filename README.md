@@ -1,5 +1,7 @@
 # solis_exporter
 
+![Sample dashboard 17503](docs/configuration/dashboard.png)
+
 This program connects to the RS485 (modbus) link between a Solis Hybrid
 inverter and its Wifi stick data logger.
 

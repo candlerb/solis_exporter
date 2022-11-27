@@ -54,6 +54,13 @@ periodically from the exporter:
           - x.x.x.x:3105
 ```
 
+### Dashboard
+
+Grafana dashboard [17503](https://grafana.com/grafana/dashboards/17503)
+provides a basic set of graphs from data stored in prometheus.
+
+![Dashboard 17503](dashboard.png)
+
 ## Modbus TCP gateway
 
 The optional modbus TCP gateway facility allows you to inject messages onto
