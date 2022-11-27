@@ -107,6 +107,14 @@ However, it doesn't export to prometheus metrics: it provides the ESPHome
 (intentionally!) doesn't allow injection of modbus messages.  The circuit
 doesn't even connect to the UART TX pin.
 
+## homeassistant-solax-modbus
+
+Currently under development,
+[homeassistant-solax-modbus](https://github.com/wills106/homeassistant-solax-modbus)
+is a Home Assistant plugin which will support Solis as well as Solax
+inverters.  I understand it will provide similar passive sniffing and
+message injection capabilities.
+
 ## modbus-sniffer
 
 My first testing used
