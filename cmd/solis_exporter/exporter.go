@@ -594,7 +594,6 @@ func (e *SolisExporter) addSolisMetrics() {
 		}),
 		f: gaugeS32,
 	})
-	/* Not sure how to convert value of this one
 	e.addHandler(33281, &handlerGauge{
 		g: prometheus.NewGauge(prometheus.GaugeOpts{
 			Name: "solis_grid_power_factor",
@@ -602,7 +601,6 @@ func (e *SolisExporter) addSolisMetrics() {
 		}),
 		f: scaledGaugeS16(0.01),
 	})
-	*/
 	e.addHandler(33282, &handlerGauge{
 		g: prometheus.NewGauge(prometheus.GaugeOpts{
 			Name: "solis_grid_frequency",
