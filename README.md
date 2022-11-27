@@ -14,10 +14,18 @@ modbus TCP gateway which can be used to read and alter its configuration.
 Tested with Solis inverter RHI-6K-48ES-5G, which reports model number 3105,
 in the United Kingdom.
 
-**USE AT YOUR OWN RISK!**
+## Documentation
+
+See <https://solis-exporter.readthedocs.io/>
+
+## USE AT YOUR OWN RISK!
 
 Tapping onto to the RS485 link requires opening and modifying the wifi
 data logger itself.
 
-Whilst passive sniffing should be safe, do not enable the TCP gateway
+Before doing this, consider the
+[alternative ways](https://solis-exporter.readthedocs.io/en/latest/alternatives/)
+of integrating with your inverter.
+
+Whilst passive sniffing should be safe, do not enable the modbus TCP gateway
 unless you have fully understood the consequences!
