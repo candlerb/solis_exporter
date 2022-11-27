@@ -233,10 +233,9 @@ battery charge/discharge.
 I find the following formula gives a more consistent estimate of load:
 
 ```
-clamp_min(0.97 * solis_inverter_dc_power - solis_grid_power_active - 0.97 *
+clamp_min(0.97 * solis_inverter_dc_power - solis_grid_power_active - 1.06 *
 solis_bms_battery_current * solis_bms_battery_voltage * sgn(solis_battery_current), 0)
 ```
 
 It does show occasional excursions to zero, but much less often, and the
-calculated values are plausible.  The fudge factor of 0.97 is to adjust for
-inverter losses.
+calculated values are plausible.
