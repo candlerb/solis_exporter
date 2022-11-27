@@ -613,14 +613,14 @@ func (e *SolisExporter) addSolisMetrics() {
 			Name: "solis_grid_energy",
 			Help: "Grid meter total power import and export",
 		},
-		[]string{"type"})
+		[]string{"type", "period"})
 	e.addHandler(33283, &handlerGaugeVec{
 		gv: grid_energy,
-		f:  scaledGaugeVecU32(0.01, "import"),
+		f:  scaledGaugeVecU32(0.01, "import", "all"),
 	})
 	e.addHandler(33285, &handlerGaugeVec{
 		gv: grid_energy,
-		f:  scaledGaugeVecU32(0.01, "export"),
+		f:  scaledGaugeVecU32(0.01, "export", "all"),
 	})
 }
 

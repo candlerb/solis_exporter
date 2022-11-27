@@ -21,8 +21,8 @@ solis_bms_failure_flags{code="02"} 0
 solis_grid_current{phase="U"} 1.45
 solis_grid_current{phase="V"} 0
 solis_grid_current{phase="W"} 0
-solis_grid_energy{type="export"} 1150.2
-solis_grid_energy{type="import"} 205.56
+solis_grid_energy{period="all",type="export"} 1150.2
+solis_grid_energy{period="all",type="import"} 205.56
 solis_grid_frequency 50.07
 solis_grid_power_active 2
 solis_grid_power_apparent 235
