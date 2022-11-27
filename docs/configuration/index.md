@@ -1,6 +1,16 @@
-# Configuration
+# Installation and Configuration
 
-## Exporter
+## Install the binary
+
+The minimum [Go](https://go.dev/dl/) version required is 1.19.
+
+```
+go install github.com/candlerb/solis_exporter/cmd/solis_exporter@latest
+```
+
+This should install the binary in `~/go/bin/solis_exporter`
+
+## Configure Exporter
 
 The exporter is configured using a YAML file `solis_exporter.yml`. The
 location of the config file is given using the `-config` flag, e.g.
@@ -44,17 +54,18 @@ curl 127.0.0.1:3105/metrics
 Most metrics will not appear until the first successfully sniffed packet
 exchanges.
 
-You can then configure prometheus with a scrape job to read metrics
-periodically from the exporter:
+### Dashboard
+
+Once the exporter is running, you can configure prometheus with a scrape job
+to read metrics periodically:
 
 ```
   - job_name: solis
+    scrape_interval: 1m
     static_configs:
       - targets:
           - x.x.x.x:3105
 ```
-
-### Dashboard
 
 Grafana dashboard [17503](https://grafana.com/grafana/dashboards/17503)
 provides a basic set of graphs from data stored in prometheus.
