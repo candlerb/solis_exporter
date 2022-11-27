@@ -155,7 +155,7 @@ W_Grid Current | `solis_grid_current{phase="W"}`
 Grid Total Active Power | `solis_grid_power_active`
 Grid Total Reactive Power | `solis_grid_power_reactive`
 Grid Total Apparent Power | `solis_grid_power_apparent `
-Grid Power Factor | (not implemented, unclear how to scale the value)
+Grid Power Factor | `solis_grid_power_factor`
 Grid Frequency | `solis_grid_frequency`
 Daily Energy to Grid | `solis_inverter_energy{period="day",type="export"}`
 Total Energy to Grid | `solis_inverter_energy{period="all",type="export"}`
@@ -164,7 +164,7 @@ Total Energy from Grid | `solis_inverter_energy{period="all",type="import"}`
 
 <br />
 Note that the total energy to/from Grid is also available with higher
-resolution (0.01kWh) from `solis_grid_energy{type=~"import|export"}`, which
+resolution (0.01kWh) from `solis_grid_energy{type=~"export|import"}`, which
 comes from different fields in the modbus data but doesn't include a daily
 figure.
 
@@ -230,7 +230,7 @@ unreliable, often dropping to zero despite a near-constant load.  I suspect
 these are estimated from inverter output power, grid import/export and
 battery charge/discharge.
 
-The following formula seems to give a more consistent estimate of load:
+I find the following formula gives a more consistent estimate of load:
 
 ```
 clamp_min(0.97 * solis_inverter_dc_power - solis_grid_power_active - 0.97 *
