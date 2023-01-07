@@ -32,6 +32,11 @@ The same thread took me to the crucial
 [PDF document](https://www.scss.tcd.ie/Brian.Coghlan/Elios4you/RS485_MODBUS-Hybrid-BACoghlan-201811228-1854.pdf)
 containing the register layout.
 
+See [packet log](../packet_log/) for packets captured between the data logger
+and the inverter.
+
+### Timed charge and dicharge
+
 To enable or disable timed charge/discharge, write to register 43310: 35 for
 "run", 33 for "stop".  This must be written with the "Write Single Register"
 modbus operation (function code 06).
@@ -51,13 +56,24 @@ write_registers(43143, [3, 0, 5, 30, 0, 0, 0, 0])
 To read these back, you need function code 03 ("read holding registers").  A
 read with function code 04 ("read input registers") will return garbage.
 
-Whilst the control panel shows multiple time periods for charge and
-discharge, the above command only updates the first period.  It's possible
-that subsequent registers are for the other slots, although the
-documentation says these are "reserved".
+The control panel lets you set *three* separate time periods for charge and
+discharge.  Whilst this is not documented, experimentally I have found that
+the second slot is from 43153, and the third slot is from 43163.  There are
+two apparently reserved registers between them.
 
-See [packet log](../packet_log/) for packets captured between the data logger
-and the inverter.
+```
+43143   HH MM   HH MM   HH MM   HH MM   00 00
+        start    end    start    end    reserved?
+        ---charge---    --discharge-
+
+43153   HH MM   HH MM   HH MM   HH MM   00 00
+        start    end    start    end    reserved?
+        ---charge---    --discharge-
+
+43163   HH MM   HH MM   HH MM   HH MM   00 00
+        start    end    start    end    reserved?
+        ---charge---    --discharge-
+```
 
 ## modbus and serial specifications
 
