@@ -32,5 +32,5 @@ solis_exporter:
 #      functions: [6,16]
 #    # Timed charge and discharge start/end
 #    - from: 43143
-#      to: 43150
+#      to: 43170
 #      functions: [16]
