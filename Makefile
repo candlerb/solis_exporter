@@ -1,6 +1,6 @@
-.PHONY: solis_exporter
-solis_exporter:
-	go build -o bin ./...
+.PHONY: all
+all:
+	go build -o bin/ ./...
 
 .PHONY: test
 test:
@@ -12,7 +12,7 @@ test:
 .PHONY: clean
 clean:
 	find . -name '*~' -delete
-	rm -f solis_exporter
+	rm -f bin/*
 
 .PHONY: docs
 docs: clean
