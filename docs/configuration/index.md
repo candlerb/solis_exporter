@@ -4,7 +4,7 @@
 
 The minimum [Go](https://go.dev/dl/) version required is 1.19.
 
-```
+```sh
 go install github.com/candlerb/solis_exporter/cmd/solis_exporter@latest
 ```
 
@@ -15,13 +15,13 @@ This should install the binary in `~/go/bin/solis_exporter`
 The exporter is configured using a YAML file `solis_exporter.yml`. The
 location of the config file is given using the `-config` flag, e.g.
 
-```
+```sh
 ./solis_exporter -config /etc/solis_exporter.yml
 ```
 
 The configuration file has only a few required settings:
 
-```
+```yaml
 serial:
   device: /dev/ttyUSB0
   #dump: true
@@ -36,7 +36,7 @@ You can run the exporter under systemd, using the sample service file.  You
 may need to tweak this: e.g.  to change the user that the daemon runs as. 
 This user must have permission to open the serial device.
 
-```
+```sh
 sudo cp solis_exporter.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable --now solis_exporter
@@ -47,7 +47,7 @@ sudo systemctl enable --now solis_exporter
 [Metrics](../metrics/) are available on the given port under `/metrics`. 
 You can read them using:
 
-```
+```sh
 curl 127.0.0.1:3105/metrics
 ```
 
@@ -59,7 +59,7 @@ exchanges.
 Once the exporter is running, you can configure prometheus with a scrape job
 to read metrics periodically:
 
-```
+```yaml
   - job_name: solis
     scrape_interval: 1m
     static_configs:
@@ -79,7 +79,7 @@ the RS485 bus, to query or change the inverter settings.
 
 To enable this feature, add a stanza to solis_exporter.yml like this:
 
-```
+```yaml
 gateway:
   listen: '127.0.0.1:1502'
   rules:
@@ -110,7 +110,7 @@ done by running the exporter as root, or you can give it the
 `NET_BIND_SERVICE` capability.  If running as a service under systemd, you
 can use these settings:
 
-```
+```text
 [Service]
 ...
 CapabilityBoundingSet=CAP_NET_BIND_SERVICE
