@@ -23,8 +23,9 @@ solis_exporter:
 #    # Storage mode control
 #    - from: 43110
 #      functions: [6]
-#    # Battery discharge current limit (0.1A)
-#    - from: 43118
+#    # Battery charge/discharge current limit (0.1A)
+#    - from: 43117
+#      to: 43118
 #      functions: [6]
 #    # Timed charge and discharge current
 #    - from: 43141
