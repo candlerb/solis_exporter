@@ -139,6 +139,17 @@ func scaledGaugeVecU32(scale float64, labelValues ...string) gaugeVecFunc {
 	}
 }
 
+func scaledGaugeVecU32NonZero(scale float64, labelValues ...string) gaugeVecFunc {
+	return func(g *prometheus.GaugeVec, data []byte) {
+		if len(data) >= 4 {
+			val := binary.BigEndian.Uint32(data)
+			if val > 0 {
+				g.WithLabelValues(labelValues...).Set(float64(val) * scale)
+			}
+		}
+	}
+}
+
 func scaledGaugeVecS32(scale float64, labelValues ...string) gaugeVecFunc {
 	return func(g *prometheus.GaugeVec, data []byte) {
 		if len(data) >= 4 {
@@ -614,13 +625,14 @@ func (e *SolisExporter) addSolisMetrics() {
 			Help: "Grid meter total power import and export",
 		},
 		[]string{"type", "period"})
+	// After an inverter restart, these values can read as zero for a short period. Ignore them.
 	e.addHandler(33283, &handlerGaugeVec{
 		gv: grid_energy,
-		f:  scaledGaugeVecU32(0.01, "import", "all"),
+		f:  scaledGaugeVecU32NonZero(0.01, "import", "all"),
 	})
 	e.addHandler(33285, &handlerGaugeVec{
 		gv: grid_energy,
-		f:  scaledGaugeVecU32(0.01, "export", "all"),
+		f:  scaledGaugeVecU32NonZero(0.01, "export", "all"),
 	})
 }
 
