@@ -1,8 +1,28 @@
 # Alternative ways of integrating with Solis inverters
 
 I have not tested any of these, but I came across them in my initial
-research.  The advantage of these is that no modification to the wifi data
-logger is required.
+research and later.  The advantage of these is that no hardware modification
+to the wifi data logger is required.
+
+Aside: to find your wifi logger's IP address, go into Solis Cloud and look
+for Device Overview, Datalogger tab, and select the logger.  Also, if you
+look in the DHCP leases on your router, the DHCP hostname will be the
+logger's serial number.
+
+## Modbus via Solarman v5 protocol
+
+Older versions of the logger (before v3) apparently accept modbus messages
+wrapped in a proprietary protocol, on TCP port 8899.
+
+* https://pysolarmanv5.readthedocs.io/en/stable/
+
+My logger does accept connections on port 8899, but I've not tried sending
+any of these messages.  However if it works, this will likely be a safer way
+to send configuration change messages rather than inserting them into the
+modbus stream in the gaps between logger messages.
+
+(For newer loggers, it might be possible to request via Solis support to have
+modbus access enabled)
 
 ## Binary logger updates
 
@@ -45,6 +65,20 @@ instantaneous power, total energy, and wifi status.
   mqtt, has grafana dashboard for influxdb
 
 You're limited to the resolution that Solis Cloud stores (5 minutes).
+
+## API access to Solis Cloud
+
+Apparently now available on request.
+
+* https://community.home-assistant.io/t/communication-with-solis-inverter/292502/36?page=2
+
+## Custom firmware
+
+Newer versions of the logger can be reflashed with custom firmware.
+
+* https://github.com/hn/ginlong-solis?tab=readme-ov-file#replacing-the-main-application
+
+You risk bricking your logger, but they are cheap.
 
 ## Direct RS485 connection without data logger
 
