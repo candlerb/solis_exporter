@@ -14,7 +14,7 @@ logger's serial number.
 Older versions of the logger (before v3) apparently accept modbus messages
 wrapped in a proprietary protocol, on TCP port 8899.
 
-* https://pysolarmanv5.readthedocs.io/en/stable/
+* [pysolarman5](https://pysolarmanv5.readthedocs.io/en/stable/)
 
 My logger does accept connections on port 8899, but I've not tried sending
 any of these messages.  However if it works, this will likely be a safer way
@@ -70,13 +70,13 @@ You're limited to the resolution that Solis Cloud stores (5 minutes).
 
 Apparently now available on request.
 
-* https://community.home-assistant.io/t/communication-with-solis-inverter/292502/36?page=2
+* [home-assistant thread](https://community.home-assistant.io/t/communication-with-solis-inverter/292502/36?page=2)
 
 ## Custom firmware
 
 Newer versions of the logger can be reflashed with custom firmware.
 
-* https://github.com/hn/ginlong-solis?tab=readme-ov-file#replacing-the-main-application
+* [hn ginlong-solis](https://github.com/hn/ginlong-solis?tab=readme-ov-file#replacing-the-main-application)
 
 You risk bricking your logger, but they are cheap.
 
