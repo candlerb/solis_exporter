@@ -35,7 +35,7 @@ containing the register layout.
 See [packet log](../packet_log/) for packets captured between the data logger
 and the inverter.
 
-### Timed charge and dicharge
+### Timed charge and discharge
 
 To enable or disable timed charge/discharge, write to register 43310: 35 for
 "run", 33 for "stop".  This must be written with the "Write Single Register"
