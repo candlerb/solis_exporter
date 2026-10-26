@@ -228,6 +228,20 @@ Furthermore: read requests are sent by default using function code 3.  This
 is also the case if you supply flag `-t 4`.  To get function code 4, you
 have to set `-t 3`.  Go figure!!
 
+```
+# READ THE SYSTEM TIME: returns YY MM DD hh mm ss
+mbpoll 127.0.0.1 -p 1502 -0 -1 -o 10 -t 3 -r 33022 -c 6
+```
+
+* `-t 3`: use function code 4
+* `-r 33022`: register base
+* `-c 6`: register count
+
+```
+# SET THE SYSTEM TIME (uses function code 0x10 by default)
+mbpoll 127.0.0.1 -p 1502 -0 -1 -o 10 -r 43000 $(date "+%y %m %d %H %M %S")
+```
+
 ## mbusd
 
 [mbusd](https://github.com/3cky/mbusd) is a modbus TCP to RTU (RS485)

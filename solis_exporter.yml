@@ -20,6 +20,10 @@ solis_exporter:
 #    - from: 40001
 #      to: 49999
 #      functions: [3]
+#    # Setting the clock
+#    - from: 43000
+#      to: 43005
+#      functions: [16]
 #    # Storage mode control
 #    - from: 43110
 #      functions: [6]
